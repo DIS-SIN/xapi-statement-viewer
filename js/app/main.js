@@ -136,15 +136,15 @@ define(function (require) {
           { width: "17%", data: "actor.name", "defaultContent": "" },
           { width: "13%", data: function (row, type, val, meta){
             if ('display' in row.verb){
-              if (!('en-US' in row.verb.display)){
-                if ('en' in row.verb.display){
-                  return row.verb.display.en;
+              if (!('en-CA' in row.verb.display)){
+                if ('en-US' in row.verb.display){
+                  return row.verb.display.['en-US'];
                 }
               }
-              return row.verb.display['en-US'];
+              return row.verb.display['en-CA'];
             }
           }, "defaultContent": "" },
-          { width: "28%", data: "object.definition.name.en-US", "defaultContent": "" },
+          { width: "28%", data: "object.definition.name.en-CA", "defaultContent": "" },
           { width: "12%", data: "object.objectType", "defaultContent": "" },
           { width: "15%", data: "authority.name", "defaultContent": "" },
           {
