@@ -128,8 +128,8 @@ define(function (require) {
       var table = $('#statement-list').DataTable({
         "columns": [
           { width: "10%", data: "timestamp", "defaultContent": "" },
-          { width: "17%", data: "actor.name", "defaultContent": "" },
-          { width: "13%", data: function (row, type, val, meta){
+          { width: "20%", data: "actor.name", "defaultContent": "" },
+          { width: "15%", data: function (row, type, val, meta){
             if ('display' in row.verb){
               if (!('en-CA' in row.verb.display)){
                 if ('en-US' in row.verb.display){
@@ -139,9 +139,8 @@ define(function (require) {
               return row.verb.display['en-CA'];
             }
           }, "defaultContent": "" },
-          { width: "28%", data: "object.definition.name.en-CA", "defaultContent": "" },
-          { width: "12%", data: "object.objectType", "defaultContent": "" },
-          { width: "15%", data: "authority.name", "defaultContent": "" },
+          { width: "30%", data: "object.definition.name.en-CA", "defaultContent": "" },
+          { width: "20%", data: "context.registration", "defaultContent": "" },
           {
             width: "5%",
             "className":      'details-control',
