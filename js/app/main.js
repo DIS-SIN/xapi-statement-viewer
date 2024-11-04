@@ -138,7 +138,7 @@ define(function (require) {
             if ('display' in row.verb){
               if (!('en-CA' in row.verb.display)){
                 if ('en-US' in row.verb.display){
-                  return row.verb.display.['en-US'];
+                  return row.verb.display['en-US'];
                 }
               }
               return row.verb.display['en-CA'];
