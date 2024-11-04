@@ -41,25 +41,6 @@
 
               <div class="row">
 
-                <div class="form-group col-md-6">
-                  <label for="search-predefined-verb">Predefined Verb</label>
-                  <select class="form-control" name="search-predefined-verb" id="search-predefined-verb">
-                    <option></option>
-                  </select>
-                </div>
-
-                <div class="form-group col-md-6">
-                  <label for="search-verb-sort">Verb Sort</label>
-                  <select class="form-control" aria-describedby="Verb Sort" id="search-verb-sort">
-                    <option value="">Descending</option>
-                    <option value="true">Ascending</option>
-                  </select>
-                </div>
-
-              </div><!-- .row -->
-
-              <div class="row">
-
                 <div class="form-group col-md-12">
                   <label for="search-user-verb-id">Verb ID</label>
                   <input type="text" class="form-control" value="" aria-describedby="Verb ID" placeholder="http://adlnet.gov/verbs/answered" id="search-user-verb-id" />
@@ -71,7 +52,7 @@
 
                 <div class="form-group col-md-9">
                   <label for="search-actor">Agent</label>
-                  <input type="text" class="form-control" value="" aria-describedby="Agent" placeholder="{'mbox':'mailto:tyler.mulligan.ctr@adlnet.gov'}" id="search-actor" />
+                  <input type="text" class="form-control" value="" aria-describedby="Agent ID" placeholder="00c1682a-de72-4d82-9735-d545b1fb5bad" id="search-actor" />
                 </div>
 
                 <div class="form-group col-md-3">
@@ -87,18 +68,9 @@
 
               <div class="row">
 
-                <div class="form-group col-md-9">
+                <div class="form-group col-md-12">
                   <label for="search-activity-id">Activity ID</label>
                   <input type="text" class="form-control" value="" aria-describedby="Activity ID" placeholder="http://adlnet.gov/activities/question" id="search-activity-id" />
-                </div>
-
-                <div class="form-group col-md-3">
-                  <label for="search-related-activities">Related Activities</label>
-                  <select class="form-control" aria-describedby="Related Activities" id="search-related-activities">
-                    <option></option>
-                    <option>false</option>
-                    <option>true</option>
-                  </select>
                 </div>
 
               </div><!-- .row -->
@@ -114,15 +86,9 @@
 
               <div class="row">
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <label class="control-label" for="search-statement-id">Statement ID</label>
                   <input type="text" class="form-control" value="" aria-describedby="Activity ID" placeholder="ef8a3c05-7c88-4d46-a821-c6f2f061ef23" id="search-statement-id" pattern="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}" />
-                </div>
-
-
-                <div class="form-group col-md-6">
-                  <label class="control-label" for="search-voided-statement-id">Voided Statement ID</label>
-                  <input type="text" class="form-control" value="" aria-describedby="Voided Activity ID" placeholder="00d9f122-e9cd-4ea3-b180-9daa49c8a7e5" id="search-voided-statement-id" pattern="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}" />
                 </div>
 
               </div><!-- .row -->
