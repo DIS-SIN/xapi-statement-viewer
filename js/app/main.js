@@ -108,16 +108,11 @@ define(function (require) {
       gmore = null;
 
       $("#reset-search").click(function(e) {
-        $("#search-predefined-verb").val("");
-        $("#search-verb-sort").val("");
         $("#search-user-verb-id").val("");
         $("#search-actor-email").val("");
-        $("#search-related-agents").val("");
         $("#search-activity-id").val("");
-        $("#search-related-activities").val("");
         $("#search-registration-id").val("");
         $("#search-statement-id").val("");
-        $("#search-voided-statement-id").val("");
         $("#search-statements-since-date input").val("");
         $("#search-statements-until-date input").val("");
         $("#search-limit").val("");
@@ -170,15 +165,11 @@ define(function (require) {
 
       // Retreive statements from the LRS
       function getStatementsWithSearch(more, curPage) {
-        var verbSort = $("#search-verb-sort").val();
         var verbId = $("#search-user-verb-id").val();
         var actor = $("#search-actor").val();
-        var relatedAgents = $("#search-related-agents").val();
         var activityId = $("#search-activity-id").val();
-        var relatedActivities = $("#search-related-activities").val();
         var registrationId = $("#search-registration-id").val();
         var statementId = $("#search-statement-id").val();
-        var voidedStatementId = $("#search-voided-statement-id").val();
         var sinceDate = $("#search-statements-since-date input").val();
         var untilDate = $("#search-statements-until-date input").val();
         var limit = $("#search-limit").val();
@@ -186,14 +177,10 @@ define(function (require) {
         // Build Search
         var search = ADL.XAPIWrapper.searchParams();
         if (verbId != "") { search['verb'] = verbId; }
-        if (verbSort != "") { search['ascending'] = verbSort; }
         if (actor != "") { search['agent'] = actor; }
-        if (relatedAgents != "") { search['related_agents'] = relatedAgents; }
         if (activityId != "") { search['activity'] = activityId; }
-        if (relatedActivities != "") { search['related_activities'] = relatedActivities; }
         if (registrationId != "") { search['registration'] = registrationId; }
         if (statementId != "") { search['statementId'] = statementId; }
-        if (voidedStatementId != "") { search['voidedStatementId'] = voidedStatementId; }
         if (sinceDate != "") { search['since'] = sinceDate; }
         if (untilDate != "") { search['until'] = untilDate; }
         if (limit != "") { search['limit'] = limit; }
@@ -326,7 +313,7 @@ define(function (require) {
             var curPage = $('#statement-list').DataTable().page();
             getStatementsWithSearch(gmore, curPage);
           } else {
-            $.notify({ message: "No more statments!" }, notificationErrorSettings);
+            $.notify({ message: "No more statements!" }, notificationErrorSettings);
           }
           e.preventDefault();
         });
