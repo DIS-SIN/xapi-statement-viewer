@@ -129,7 +129,7 @@ define(function (require) {
         "columns": [
           { width: "10%", data: "timestamp", "defaultContent": "" },
           { width: "20%", data: "actor.name", "defaultContent": "" },
-          { width: "15%", data: function (row, type, val, meta){
+          { width: "10%", data: function (row, type, val, meta){
             if ('display' in row.verb){
               if (!('en-CA' in row.verb.display)){
                 if ('en-US' in row.verb.display){
@@ -139,8 +139,8 @@ define(function (require) {
               return row.verb.display['en-CA'];
             }
           }, "defaultContent": "" },
-          { width: "30%", data: "object.definition.name.en-CA", "defaultContent": "" },
-          { width: "20%", data: "context.registration", "defaultContent": "" },
+          { width: "20%", data: "object.definition.name.en-CA", "defaultContent": "" },
+          { width: "35%", data: "object.id", "defaultContent": "" },
           {
             width: "5%",
             "className":      'details-control',
@@ -150,8 +150,8 @@ define(function (require) {
           }
         ],
         "rowCallback": function( row, data ) {
-          var display = moment(data.timestamp);
-          $('td:eq(0)', row).html( '<span title="' + data.timestamp + '">' + display.fromNow() + '</span>' );
+          var display = new Date(data.timestamp).toLocaleString('en-CA', { timeZone: 'America/Toronto' })
+          $('td:eq(0)', row).html( '<span title="' + data.timestamp + '">' + display + '</span>' );
           if (data.actor.hasOwnProperty('account') && data.actor.account.hasOwnProperty('name')) { $('td:eq(1)', row).html( data.actor.account.name ); }
           else if (data.actor.hasOwnProperty('name') == false && data.actor.hasOwnProperty('mbox')) { $('td:eq(1)', row).html( data.actor.mbox.replace('mailto:','') ); }
           if (data.object.hasOwnProperty('name')) { $('td:eq(3)', row).html( data.object.name ); }
