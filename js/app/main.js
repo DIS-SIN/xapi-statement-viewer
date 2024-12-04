@@ -89,9 +89,10 @@ define(function (require) {
           enter: 'animated fadeInUp',
           exit: 'animated fadeOutDown'
         },
+        delay: 15,
         type: "success",
         placement: {
-          from: "bottom",
+          from: "top",
           align: "right"
         },
       };
@@ -106,6 +107,7 @@ define(function (require) {
       };
 
       gmore = null;
+      gtotal = null;
 
       $("#reset-search").click(function(e) {
         $("#search-user-verb-id").val("");
@@ -224,6 +226,13 @@ define(function (require) {
               }
               //console.log(gmore);
 
+              if (response.total != "") {
+                gtotal = response.total;
+                console.log('gtotal: ' + gtotal);
+              } else {
+                gtotal = null;
+              }
+
               if (length > 0) {
                 if (stmt) {
                   var stmts = $.parseJSON("[" + JSON.stringify(stmt) + "]");
@@ -235,7 +244,12 @@ define(function (require) {
 
               $('#statement-list').DataTable().rows.add(stmts).draw();
               $('#statement-list').DataTable().page(curPage).draw(false);
+             
               prettyPrint();
+
+              if (gtotal) {
+                $('#statement-list_info').append(" (" + gtotal.toLocaleString() + " total)");
+              }
             }
           });
         }
