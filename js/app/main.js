@@ -224,11 +224,9 @@ define(function (require) {
               } else {
                 gmore = null;
               }
-              //console.log(gmore);
 
               if (response.total != "") {
                 gtotal = response.total;
-                console.log('gtotal: ' + gtotal);
               } else {
                 gtotal = null;
               }
@@ -261,7 +259,23 @@ define(function (require) {
           JSON.stringify(d, null, 2)+
           '</pre></div>';
         }
-         
+        // Add observer to the table & add gtotal to info
+        let target = document.getElementById('statement-list_info')
+
+        // Create an observer instance.
+        let observer = new MutationObserver(function(mutations) {
+          if (gtotal && !target.innerText.includes(gtotal.toLocaleString())) {
+            $('#statement-list_info').append(" (" + gtotal.toLocaleString() + " total)");
+          }
+        });
+
+        // Pass in the target node, as well as the observer options.
+        observer.observe(target, {
+            attributes:    true,
+            childList:     true,
+            characterData: true
+        });
+
         // Add event listener for opening and closing details
         $('#statement-list tbody').on('click', 'td.details-control', function () {
             var tr = $(this).closest('tr');
